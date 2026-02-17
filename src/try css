@@ -1,0 +1,115 @@
+/* ===================== HORIZONTAL LISTING ===================== */
+.listing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1rem;
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 159, 28, 0.12),
+      transparent 65%
+    ),
+    #000;
+}
+
+.listing-section h2 {
+  margin-bottom: 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+/* GRID */
+.listing-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 85%;
+}
+
+/* CARD */
+.listing-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Hover lift */
+.listing-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* IMAGE */
+.listing-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.6s ease;
+}
+
+/* Image zoom */
+.listing-card:hover img {
+  transform: scale(1.08);
+}
+
+/* DARK GRADIENT OVER IMAGE */
+.listing-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.95)
+  );
+  z-index: 1;
+}
+
+/* TEXT OVER IMAGE */
+.listing-card h4 {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 1rem;
+  z-index: 2;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* PRICE / SUBTEXT */
+.listing-card p {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ff9f1c;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .listing-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .listing-row {
+    grid-template-columns: 1fr;
+    width: 95%;
+  }
+
+  .listing-card img {
+    height: 240px;
+  }
+}
