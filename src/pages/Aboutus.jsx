@@ -30,7 +30,7 @@ const AboutUs = () => {
         <div className="about-hero-inner">
           <div className="hero-badge animate-fadeInDown">
             <Heart size={14} />
-            <span>Since 2024</span>
+            <span>Since 2026</span>
           </div>
           <h1 className="animate-fadeInUp">
             About <span className="gradient-text">StayBite</span>
