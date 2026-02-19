@@ -202,9 +202,9 @@ const AdminDashboard = () => {
     };
 
     return (
-        <div style={{ minHeight: "100vh", background: "#f5f7fa", paddingTop: "100px", paddingBottom: "50px", display: "flex", justifyContent: "center" }}>
+        <div className="admin-page-wrapper" style={{ minHeight: "100vh", background: "#f5f7fa", paddingTop: "100px", paddingBottom: "50px", display: "flex", justifyContent: "center" }}>
             <div style={{ maxWidth: "1200px", width: "95%" }}>
-                <div style={{ background: "white", padding: "30px", borderRadius: "16px", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}>
+                <div className="admin-card" style={{ background: "white", padding: "30px", borderRadius: "16px", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}>
                     <h1 style={{ marginBottom: "30px", color: "#1a1a1a", borderBottom: "2px solid #f0f0f0", paddingBottom: "10px" }}>Admin Dashboard</h1>
 
                     {/* Content Area */}
@@ -324,7 +324,7 @@ const AdminDashboard = () => {
                                     <h2 style={{ marginBottom: "20px", color: "#ff385c", textAlign: "center" }}>Add New PG</h2>
                                     <form onSubmit={handleAddPG} className="contact-form" style={{ background: "#f9f9f9", padding: "20px", borderRadius: "12px" }}>
                                         <input placeholder="PG Name" value={pgForm.name} onChange={(e) => setPgForm({ ...pgForm, name: e.target.value })} required />
-                                        <div style={{ display: "flex", gap: "10px" }}>
+                                        <div className="admin-form-row" style={{ display: "flex", gap: "10px" }}>
                                             <input placeholder="City" value={pgForm.city} onChange={(e) => setPgForm({ ...pgForm, city: e.target.value })} required style={{ flex: 1 }} />
                                             <input placeholder="Location" value={pgForm.location || ""} onChange={(e) => setPgForm({ ...pgForm, location: e.target.value })} required style={{ flex: 1 }} />
                                             <input placeholder="Rent" value={pgForm.rent} onChange={(e) => setPgForm({ ...pgForm, rent: e.target.value })} required style={{ flex: 1 }} />
@@ -388,7 +388,7 @@ const AdminDashboard = () => {
                                     <h2 style={{ marginBottom: "20px", color: "#ff385c", textAlign: "center" }}>Add New Room</h2>
                                     <form onSubmit={handleAddRoom} className="contact-form" style={{ background: "#f9f9f9", padding: "20px", borderRadius: "12px" }}>
                                         <input placeholder="Room Name" value={roomForm.name} onChange={(e) => setRoomForm({ ...roomForm, name: e.target.value })} required />
-                                        <div style={{ display: "flex", gap: "10px" }}>
+                                        <div className="admin-form-row" style={{ display: "flex", gap: "10px" }}>
                                             <input placeholder="Price" value={roomForm.price} onChange={(e) => setRoomForm({ ...roomForm, price: e.target.value })} required style={{ flex: 1 }} />
                                             <select value={roomForm.type} onChange={(e) => setRoomForm({ ...roomForm, type: e.target.value })} style={{ flex: 1, padding: "0.8rem", borderRadius: "8px", border: "1px solid #ddd" }}>
                                                 <option value="">Select Configuration</option>
@@ -397,7 +397,7 @@ const AdminDashboard = () => {
                                                 <option value="Triple">Triple</option>
                                             </select>
                                         </div>
-                                        <div style={{ display: "flex", gap: "10px" }}>
+                                        <div className="admin-form-row" style={{ display: "flex", gap: "10px" }}>
                                             <input placeholder="City" value={roomForm.city || ""} onChange={(e) => setRoomForm({ ...roomForm, city: e.target.value })} required style={{ flex: 1 }} />
                                             <input placeholder="Location" value={roomForm.location || ""} onChange={(e) => setRoomForm({ ...roomForm, location: e.target.value })} required style={{ flex: 1 }} />
                                         </div>
@@ -453,7 +453,7 @@ const AdminDashboard = () => {
                                     <h2 style={{ marginBottom: "20px", color: "#ff385c", textAlign: "center" }}>Add Food Item</h2>
                                     <form onSubmit={handleAddFood} className="contact-form" style={{ background: "#f9f9f9", padding: "20px", borderRadius: "12px" }}>
                                         <input placeholder="Item Name" value={foodForm.name} onChange={(e) => setFoodForm({ ...foodForm, name: e.target.value })} required />
-                                        <div style={{ display: "flex", gap: "10px" }}>
+                                        <div className="admin-form-row" style={{ display: "flex", gap: "10px" }}>
                                             <input type="number" placeholder="Price" value={foodForm.price} onChange={(e) => setFoodForm({ ...foodForm, price: e.target.value })} required style={{ flex: 1 }} />
                                             <select value={foodForm.type} onChange={(e) => setFoodForm({ ...foodForm, type: e.target.value })} required style={{ flex: 1, padding: "0.8rem", borderRadius: "8px", border: "1px solid #ddd" }}>
                                                 <option value="Veg">Veg</option>
@@ -467,7 +467,7 @@ const AdminDashboard = () => {
                                             <option value="Snacks">Snacks</option>
                                             <option value="Beverages">Beverages</option>
                                         </select>
-                                        <div style={{ display: "flex", gap: "10px" }}>
+                                        <div className="admin-form-row" style={{ display: "flex", gap: "10px" }}>
                                             <input placeholder="Restaurant/Dhaba Name" value={foodForm.restaurantName || ""} onChange={(e) => setFoodForm({ ...foodForm, restaurantName: e.target.value })} style={{ flex: 1 }} />
                                             <input placeholder="Phone Number" value={foodForm.phone || ""} onChange={(e) => setFoodForm({ ...foodForm, phone: e.target.value })} style={{ flex: 1 }} />
                                         </div>

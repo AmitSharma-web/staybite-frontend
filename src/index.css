@@ -3474,3 +3474,358 @@ body {
     opacity: 1;
   }
 }
+
+/* ================================================
+   FULL-APP RESPONSIVE — TABLET (≤ 900px)
+================================================ */
+@media (max-width: 900px) {
+
+  /* ── Admin Dashboard ── */
+  .admin-page-wrapper {
+    padding-top: 80px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .admin-card {
+    padding: 20px !important;
+  }
+
+  .admin-card h1 {
+    font-size: 1.5rem;
+  }
+
+  /* ── Admin form rows stack on mobile ── */
+  .admin-form-row {
+    flex-direction: column !important;
+  }
+
+  /* ── About V2 Hero ── */
+  .about-v2-hero h1,
+  .contact-hero-content h1 {
+    font-size: 2.2rem !important;
+  }
+
+  .about-cta-section h2 {
+    font-size: 2rem;
+  }
+
+  .about-cta-section p {
+    font-size: 1rem;
+  }
+
+  .about-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-section-title {
+    font-size: 1.8rem;
+  }
+
+  .about-section-sub {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  /* ── About Stats ── */
+  .about-stat-num {
+    font-size: 2.2rem;
+  }
+
+  .about-stats-bar {
+    gap: 30px;
+    padding: 40px 20px;
+  }
+
+  /* ── About Story shadow ── */
+  .about-story-image img {
+    box-shadow: 10px 10px 0 var(--primary);
+  }
+
+  .about-story-text h2 {
+    font-size: 2rem;
+  }
+
+  /* ── List page header ── */
+  .list-header h1 {
+    font-size: 2rem;
+  }
+
+  /* ── Bookings grid ── */
+  .bookings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Contact form card ── */
+  .contact-form-card {
+    padding: 25px;
+  }
+
+  .contact-form-card h2 {
+    font-size: 1.5rem;
+  }
+
+  /* ── Food detail page (FoodDetails.jsx inline styles) ── */
+  .food-detail-wrapper {
+    padding-top: 80px !important;
+  }
+}
+
+/* ================================================
+   FULL-APP RESPONSIVE — MOBILE (≤ 600px)
+================================================ */
+@media (max-width: 600px) {
+
+  /* ── Global page padding ── */
+  .list-page {
+    padding: 80px 12px 30px;
+  }
+
+  .detail-page-v2 {
+    padding: 80px 12px 40px;
+  }
+
+  /* ── Admin Dashboard ── */
+  .admin-page-wrapper {
+    padding-top: 70px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .admin-card {
+    padding: 14px !important;
+    border-radius: 12px !important;
+  }
+
+  .admin-card h1 {
+    font-size: 1.3rem;
+    margin-bottom: 20px !important;
+  }
+
+  /* ── Admin edit pages (inline-styled containers) ── */
+  .admin-form-row>div {
+    min-width: 0;
+  }
+
+  /* ── Premium Card Grid ── */
+  .premium-card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .premium-card:hover {
+    transform: none;
+  }
+
+  /* ── Hero sections ── */
+  .premium-hero-title {
+    font-size: 1.8rem !important;
+  }
+
+  .premium-hero-sub {
+    font-size: 0.95rem;
+  }
+
+  .about-v2-hero,
+  .contact-v2-hero {
+    min-height: 300px;
+    height: auto;
+    padding: 80px 16px 40px;
+  }
+
+  .about-v2-hero h1,
+  .contact-hero-content h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .about-v2-section {
+    margin-bottom: 50px;
+  }
+
+  /* ── About stats ── */
+  .about-stats-bar {
+    gap: 20px;
+    padding: 30px 16px;
+  }
+
+  .about-stat-num {
+    font-size: 1.8rem;
+  }
+
+  .about-stat-label {
+    font-size: 0.85rem;
+  }
+
+  /* ── About story ── */
+  .about-story-image img {
+    box-shadow: 8px 8px 0 var(--primary);
+  }
+
+  .about-story-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-story-text p {
+    font-size: 0.95rem;
+  }
+
+  /* ── About CTA ── */
+  .about-cta-section {
+    padding: 50px 16px 80px;
+  }
+
+  .about-cta-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── Offer grid ── */
+  .about-offer-card {
+    padding: 20px;
+  }
+
+  /* ── Section titles ── */
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .premium-section {
+    padding: 2.5rem 1rem;
+  }
+
+  /* ── Why Us ── */
+  .why-us-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-us-card {
+    padding: 1.5rem;
+  }
+
+  /* ── List header ── */
+  .list-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .list-header p {
+    font-size: 0.9rem;
+  }
+
+  .list-header {
+    margin-bottom: 2rem;
+  }
+
+  /* ── Detail V2 ── */
+  .detail-section-card {
+    padding: 20px;
+  }
+
+  .detail-booking-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .detail-amenities-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ── Booking card ── */
+  .booking-card {
+    padding: 20px;
+  }
+
+  .booking-price {
+    font-size: 1.2rem;
+  }
+
+  /* ── Contact V2 ── */
+  .contact-v2-container {
+    margin-top: -60px;
+  }
+
+  .contact-form-card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .contact-form-card h2 {
+    font-size: 1.3rem;
+  }
+
+  /* ── Modal ── */
+  .modal-content {
+    border-radius: 16px;
+    margin: 0 8px;
+  }
+
+  .modal-header {
+    padding: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .modal-body {
+    padding: 1.2rem;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .detail-value {
+    text-align: left;
+  }
+
+  .detail-dates {
+    flex-direction: column;
+  }
+
+  /* ── Auth Pages ── */
+  .auth-right {
+    padding: 16px;
+  }
+
+  .auth-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .auth-subtitle {
+    margin-bottom: 24px;
+  }
+
+  /* ── Hero Stats ── */
+  .hero-stats-row {
+    gap: 0.8rem;
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  /* ── Food detail inline cards (admin view pages) ── */
+  .details-grid {
+    gap: 20px;
+  }
+
+  .details-card {
+    padding: 18px;
+  }
+}

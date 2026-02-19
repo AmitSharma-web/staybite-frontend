@@ -78,7 +78,7 @@ const AdminEditRoom = () => {
                         />
                     </div>
 
-                    <div style={{ display: "flex", gap: "10px" }}>
+                    <div className="admin-form-row" style={{ display: "flex", gap: "10px" }}>
                         <div style={{ flex: 1 }}>
                             <label style={{ display: "block", marginBottom: "5px", fontWeight: "600", color: "#333" }}>Price</label>
                             <input
@@ -102,7 +102,7 @@ const AdminEditRoom = () => {
                         </div>
                     </div>
 
-                    <div style={{ display: "flex", gap: "10px" }}>
+                    <div className="admin-form-row" style={{ display: "flex", gap: "10px" }}>
                         <div style={{ flex: 1 }}>
                             <label style={{ display: "block", marginBottom: "5px", fontWeight: "600", color: "#333" }}>City</label>
                             <input
@@ -143,7 +143,7 @@ const AdminEditRoom = () => {
                         />
                     </div>
 
-                    <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+                    <div className="admin-form-row" style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
                         <button
                             type="button"
                             onClick={() => navigate("/admin?tab=room")}
