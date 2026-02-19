@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import API_BASE_URL from "../utils/api";
 
 const AdminEditPg = () => {
     const { id } = useParams();
@@ -23,7 +24,7 @@ const AdminEditPg = () => {
 
     const fetchPG = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/pgs/${id}`);
+            const response = await axios.get(`${API_BASE_URL}/api/pgs/${id}`);
             const data = response.data;
             setFormData({
                 name: data.name,
@@ -50,7 +51,7 @@ const AdminEditPg = () => {
                 images: formData.images.split(",").map((url) => url.trim()),
             };
 
-            await axios.put(`http://localhost:5000/api/pgs/${id}`, payload, {
+            await axios.put(`${API_BASE_URL}/api/pgs/${id}`, payload, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success("PG Updated Successfully");

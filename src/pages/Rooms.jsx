@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ImageCarousel from "../component/ImageCarousel";
 import { Star, MapPin } from "lucide-react";
+import API_BASE_URL from "../utils/api";
 
 const RoomsPage = () => {
   const [rooms, setRooms] = useState([]);
@@ -10,7 +11,7 @@ const RoomsPage = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/rooms");
+        const response = await fetch(`${API_BASE_URL}/api/rooms`);
         const data = await response.json();
         setRooms(data);
       } catch (error) {

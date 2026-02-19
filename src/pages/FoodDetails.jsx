@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import API_BASE_URL from "../utils/api";
 import { MapPin, ArrowLeft, Utensils, Phone, ShoppingBag, IndianRupee } from "lucide-react";
 
 const FoodDetails = () => {
@@ -13,7 +14,7 @@ const FoodDetails = () => {
     useEffect(() => {
         const fetchFood = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/food/${id}`);
+                const response = await axios.get(`${API_BASE_URL}/api/food/${id}`);
                 setFood(response.data);
                 setLoading(false);
             } catch (error) {
@@ -34,7 +35,7 @@ const FoodDetails = () => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/api/bookings", {
+            const response = await axios.post(`${API_BASE_URL}/api/bookings`, {
                 food: food._id,
                 bookingType: "FOOD",
                 amount: food.price,

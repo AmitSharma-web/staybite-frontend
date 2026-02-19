@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import API_BASE_URL from "../utils/api";
 import { MapPin, ArrowLeft, Edit2, Trash2, BedDouble, IndianRupee } from "lucide-react";
 
 const AdminViewRoom = () => {
@@ -14,7 +15,7 @@ const AdminViewRoom = () => {
     useEffect(() => {
         const fetchRoom = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/rooms/${id}`);
+                const response = await axios.get(`${API_BASE_URL}/api/rooms/${id}`);
                 setRoom(response.data);
                 if (response.data.images && response.data.images.length > 0) {
                     setSelectedImage(response.data.images[0]);
@@ -35,7 +36,7 @@ const AdminViewRoom = () => {
         if (window.confirm("Are you sure you want to delete this Room?")) {
             try {
                 const token = localStorage.getItem("token");
-                await axios.delete(`http://localhost:5000/api/rooms/${id}`, {
+                await axios.delete(`${API_BASE_URL}/api/rooms/${id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 toast.success("Room Deleted Successfully");

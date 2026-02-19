@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Star, MapPin, ArrowRight, Building2, BedDouble, Sparkles } from "lucide-react";
 import ImageCarousel from "../component/ImageCarousel";
+import API_BASE_URL from "../utils/api";
 
 const Home = () => {
   const [pgs, setPgs] = useState([]);
@@ -18,8 +19,8 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const [pgRes, roomRes] = await Promise.all([
-          fetch("http://localhost:5000/api/pgs"),
-          fetch("http://localhost:5000/api/rooms"),
+          fetch(`${API_BASE_URL}/api/pgs`),
+          fetch(`${API_BASE_URL}/api/rooms`),
         ]);
         const pgData = await pgRes.json();
         const roomData = await roomRes.json();

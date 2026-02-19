@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import API_BASE_URL from "../utils/api";
 
 const AdminEditFood = () => {
     const { id } = useParams();
@@ -25,7 +26,7 @@ const AdminEditFood = () => {
 
     const fetchFood = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/food/${id}`);
+            const response = await axios.get(`${API_BASE_URL}/api/food/${id}`);
             const data = response.data;
             setFormData({
                 name: data.name,
@@ -49,7 +50,7 @@ const AdminEditFood = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem("token");
-            await axios.put(`http://localhost:5000/api/food/${id}`, formData, {
+            await axios.put(`${API_BASE_URL}/api/food/${id}`, formData, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success("Food Updated Successfully");

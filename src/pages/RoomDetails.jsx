@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { Star, MapPin, ArrowLeft, Shield, Wifi, Wind, Calendar } from "lucide-react";
 import ImageCarousel from "../component/ImageCarousel";
+import API_BASE_URL from "../utils/api";
 
 const RoomDetails = () => {
     const { id } = useParams();
@@ -15,7 +16,7 @@ const RoomDetails = () => {
     useEffect(() => {
         const fetchRoom = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/rooms/${id}`);
+                const response = await fetch(`${API_BASE_URL}/api/rooms/${id}`);
                 if (!response.ok) throw new Error("Room not found");
                 const data = await response.json();
                 setRoom(data);
@@ -46,7 +47,7 @@ const RoomDetails = () => {
         const amount = room.numericPrice || parseInt(room.price.replace(/[^\d]/g, ""), 10);
 
         try {
-            const response = await fetch("http://localhost:5000/api/bookings", {
+            const response = await fetch(`${API_BASE_URL}/api/bookings`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

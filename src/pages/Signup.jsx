@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
+import API_BASE_URL from "../utils/api";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { X, Calendar, MapPin, CreditCard, Info } from "lucide-react";
+import API_BASE_URL from "../utils/api";
 
 const MyBookings = () => {
     const [bookings, setBookings] = useState([]);
@@ -14,7 +15,7 @@ const MyBookings = () => {
     const fetchBookings = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("http://localhost:5000/api/bookings/my-bookings", {
+            const response = await fetch(`${API_BASE_URL}/api/bookings/my-bookings`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -34,7 +35,7 @@ const MyBookings = () => {
 
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch(`http://localhost:5000/api/bookings/cancel/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/api/bookings/cancel/${id}`, {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,

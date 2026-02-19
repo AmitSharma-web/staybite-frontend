@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useSearchParams, Link } from "react-router-dom";
 import axios from "axios";
+import API_BASE_URL from "../utils/api";
 
 const AdminDashboard = () => {
     const [searchParams] = useSearchParams();
@@ -31,7 +32,7 @@ const AdminDashboard = () => {
         setLoading(true);
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get("http://localhost:5000/api/bookings", {
+            const response = await axios.get(`${API_BASE_URL}/api/bookings`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setBookings(response.data);
@@ -44,7 +45,7 @@ const AdminDashboard = () => {
 
     const fetchPGs = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/pgs");
+            const response = await axios.get(`${API_BASE_URL}/api/pgs`);
             setPgs(response.data);
         } catch (error) {
             console.error("Error fetching PGs", error);
@@ -53,7 +54,7 @@ const AdminDashboard = () => {
 
     const fetchRooms = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/rooms");
+            const response = await axios.get(`${API_BASE_URL}/api/rooms`);
             setRooms(response.data);
         } catch (error) {
             console.error("Error fetching Rooms", error);
@@ -62,7 +63,7 @@ const AdminDashboard = () => {
 
     const fetchFoods = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/food");
+            const response = await axios.get(`${API_BASE_URL}/api/food`);
             setFoods(response.data);
         } catch (error) {
             console.error("Error fetching Food", error);
@@ -73,7 +74,7 @@ const AdminDashboard = () => {
         setLoading(true);
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get("http://localhost:5000/api/contacts", {
+            const response = await axios.get(`${API_BASE_URL}/api/contacts`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setContacts(response.data);
@@ -87,7 +88,7 @@ const AdminDashboard = () => {
     const handleUpdateStatus = async (id, status) => {
         try {
             const token = localStorage.getItem("token");
-            await axios.put(`http://localhost:5000/api/bookings/${id}`, { status }, {
+            await axios.put(`${API_BASE_URL}/api/bookings/${id}`, { status }, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success(`Booking ${status}`);
@@ -100,7 +101,7 @@ const AdminDashboard = () => {
     const handleContactStatus = async (id, status) => {
         try {
             const token = localStorage.getItem("token");
-            await axios.put(`http://localhost:5000/api/contacts/${id}`, { status }, {
+            await axios.put(`${API_BASE_URL}/api/contacts/${id}`, { status }, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success(`Marked as ${status}`);
@@ -114,7 +115,7 @@ const AdminDashboard = () => {
         if (!window.confirm("Delete this message?")) return;
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:5000/api/contacts/${id}`, {
+            await axios.delete(`${API_BASE_URL}/api/contacts/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success("Contact deleted");
@@ -128,7 +129,7 @@ const AdminDashboard = () => {
         if (!window.confirm("Are you sure you want to delete this item?")) return;
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:5000/api/${type}/${id}`, {
+            await axios.delete(`${API_BASE_URL}/api/${type}/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success("Item deleted successfully");
@@ -148,7 +149,7 @@ const AdminDashboard = () => {
                 ...pgForm,
                 images: pgForm.image.split(",").map((url) => url.trim()),
             };
-            await axios.post("http://localhost:5000/api/pgs", payload, {
+            await axios.post(`${API_BASE_URL}/api/pgs`, payload, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success("PG Added Successfully");
@@ -167,7 +168,7 @@ const AdminDashboard = () => {
                 ...roomForm,
                 images: roomForm.image.split(",").map((url) => url.trim()),
             };
-            await axios.post("http://localhost:5000/api/rooms", payload, {
+            await axios.post(`${API_BASE_URL}/api/rooms`, payload, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success("Room Added Successfully");
@@ -182,7 +183,7 @@ const AdminDashboard = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem("token");
-            await axios.post("http://localhost:5000/api/food", foodForm, {
+            await axios.post(`${API_BASE_URL}/api/food`, foodForm, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success("Food Added Successfully");

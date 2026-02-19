@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { MapPin, Utensils } from "lucide-react";
+import API_BASE_URL from "../utils/api";
 
 const Food = () => {
   const [foodItems, setFoodItems] = useState([]);
@@ -9,7 +10,7 @@ const Food = () => {
   useEffect(() => {
     const fetchFood = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/food");
+        const response = await fetch(`${API_BASE_URL}/api/food`);
         const data = await response.json();
         setFoodItems(data);
         setLoading(false);
@@ -30,7 +31,7 @@ const Food = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/bookings", {
+      const response = await fetch(`${API_BASE_URL}/api/bookings`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import API_BASE_URL from "../utils/api";
 import { MapPin, ArrowLeft, Edit2, Trash2, Utensils, IndianRupee, Phone, ShoppingBag } from "lucide-react";
 
 const AdminViewFood = () => {
@@ -13,7 +14,7 @@ const AdminViewFood = () => {
     useEffect(() => {
         const fetchFood = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/food/${id}`);
+                const response = await axios.get(`${API_BASE_URL}/api/food/${id}`);
                 setFood(response.data);
                 setLoading(false);
             } catch (error) {
@@ -29,7 +30,7 @@ const AdminViewFood = () => {
         if (window.confirm("Are you sure you want to delete this Food Item?")) {
             try {
                 const token = localStorage.getItem("token");
-                await axios.delete(`http://localhost:5000/api/food/${id}`, {
+                await axios.delete(`${API_BASE_URL}/api/food/${id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 toast.success("Food Deleted Successfully");
