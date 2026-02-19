@@ -254,13 +254,252 @@ body {
   box-shadow: 0 6px 20px rgba(255, 56, 92, 0.35);
 }
 
-/* RESPONSIVE */
+/* ======================
+   MOBILE HAMBURGER BUTTON
+====================== */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  z-index: 1001;
+}
+
+.mobile-menu-btn:hover {
+  background: #f0f0f0;
+  color: var(--primary);
+}
+
+/* ======================
+   MOBILE OVERLAY
+====================== */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ======================
+   MOBILE DRAWER
+====================== */
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  max-width: 85vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 90px 24px 30px;
+}
+
+/* --- Drawer Header (user info) --- */
+.mobile-drawer-header {
+  padding-bottom: 20px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-user-info,
+.mobile-admin-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.mobile-user-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* --- Navigation Links --- */
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+}
+
+.mobile-nav-link:hover {
+  background: #f5f5f5;
+  color: var(--primary);
+}
+
+.mobile-nav-link.active {
+  background: rgba(255, 56, 92, 0.08);
+  color: var(--primary);
+}
+
+.mobile-nav-link.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: var(--primary);
+  border-radius: 0 4px 4px 0;
+}
+
+/* --- Drawer Footer --- */
+.mobile-drawer-footer {
+  padding-top: 20px;
+  margin-top: auto;
+  border-top: 1px solid #eee;
+}
+
+.mobile-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #d32f2f;
+  background: rgba(211, 47, 47, 0.06);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.mobile-logout-btn:hover {
+  background: rgba(211, 47, 47, 0.12);
+}
+
+.mobile-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-btn-signin {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1.5px solid #ddd;
+  transition: all 0.2s;
+}
+
+.mobile-btn-signin:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.mobile-btn-signup {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(255, 56, 92, 0.3);
+  transition: all 0.2s;
+}
+
+.mobile-btn-signup:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 56, 92, 0.4);
+}
+
+/* ======================
+   RESPONSIVE — MOBILE
+====================== */
 @media (max-width: 900px) {
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-overlay {
+    display: block;
+  }
+
+  .mobile-drawer {
+    display: block;
+  }
 
   .nav-links,
-  .admin-nav-group {
+  .admin-nav-group,
+  .nav-actions,
+  .nav-auth-buttons {
     display: none;
-    /* In a real app, implementing a hamburger menu would be next */
   }
 }
 
